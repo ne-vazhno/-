@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск</title>
+    <link rel="stylesheet" href="form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+
+    <!-- Форма поиска -->
+    <div class="search-form-container">
+        <form id="search-form">
+            <h2>Поиск</h2>
+
+            <div class="form-group">
+                <label for="search-term">ФИО, год рождения:</label>
+                <input type="text" id="search-term" name="search-term">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="ignore-main-search"> Не учитывать основную поисковую строку
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="group-documents"> Группировать документы одного человека
+                </label>
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label for="last-name">Фамилия:</label>
+                <input type="text" id="last-name" name="last-name">
+            </div>
+
+            <div class="form-group">
+                <label for="first-name">Имя:</label>
+                <input type="text" id="first-name" name="first-name">
+            </div>
+
+            <div class="form-group">
+                <label for="middle-name">Отчество:</label>
+                <input type="text" id="middle-name" name="middle-name">
+            </div>
+
+            <div class="form-group">
+                <label for="birth-date">Дата рождения:</label>
+                <input type="text" id="birth-date" name="birth-date" class="datepicker">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="period-search-birth" name="period-search-birth"> Поиск по периоду
+                </label>
+                <input type="text" id="birth-period" name="birth-period" class="period-field datepicker" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="birth-place">Место рождения:</label>
+                <input type="text" id="birth-place" name="birth-place">
+            </div>
+
+            <div class="form-group">
+                <label for="rank">Воинское звание:</label>
+                <input type="text" id="rank" name="rank">
+            </div>
+
+            <div class="form-group">
+                <label for="service-place">Место службы:</label>
+                <input type="text" id="service-place" name="service-place">
+            </div>
+
+            <div class="form-group">
+                <label for="enlistment-place">Место призыва:</label>
+                <input type="text" id="enlistment-place" name="enlistment-place">
+            </div>
+
+            <div class="form-group">
+                <label for="database-id">ID записи в базе данных:</label>
+                <input type="text" id="database-id" name="database-id">
+            </div>
+
+            <hr>
+
+            <h3>Искать с учетом информации о выбытии</h3>
+
+            <div class="form-group">
+                <label for="departure-date">Дата выбытия/смерти:</label>
+                <input type="text" id="departure-date" name="departure-date" class="datepicker">
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="period-search-departure" name="period-search-departure"> Поиск по периоду
+                </label>
+                <input type="text" id="departure-period" name="departure-period" class="period-field datepicker" disabled>
+            </div>
+
+            <div class="form-group">
+                <label for="departure-place">Место выбытия/смерти:</label>
+                <input type="text" id="departure-place" name="departure-place">
+            </div>
+
+            <div class="form-group">
+                <label for="hospital">Госпиталь:</label>
+                <input type="text" id="hospital" name="hospital">
+            </div>
+
+            <div class="form-group">
+                <label for="pow-camp">Лагерь военнопленных:</label>
+                <input type="text" id="pow-camp" name="pow-camp">
+            </div>
+
+            <div class="form-group">
+                <label for="capture-place">Место пленения:</label>
+                <input type="text" id="capture-place" name="capture-place">
+            </div>
+
+            <hr>
+
+            <h3>Искать с учетом информации о награждении</h3>
+
+            <div class="form-group">
+                <label for="award">Награда:</label>
+                <select id="award" name="award">
+                    <option value="">Выберите награду</option>
+                    <option value="order-of-glory">Орден Славы</option>
+                    <option value="medal-for-valor">Медаль "За отвагу"</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="award-document-number">Номер наградного документа:</label>
+                <input type="text" id="award-document-number" name="award-document-number">
+            </div>
+
+            <div class="form-group">
+                <label for="award-date">Дата награждения:</label>
+                <input type="text" id="award-date" name="award-date" class="datepicker">
+            </div>
+
+            <button type="submit">Уточнить и найти</button>
+            <button type="button">Только фото</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr(".datepicker", {
+            enableTime: false,
+            dateFormat: "Y-m-d",
+        });
+
+        const periodSearchBirthCheckbox = document.getElementById('period-search-birth');
+        const birthPeriodField = document.getElementById('birth-period');
+
+periodSearchBirthCheckbox.addEventListener('change', function() {
+    birthPeriodField.disabled = !this.checked;
+});
+
+const periodSearchDepartureCheckbox = document.getElementById('period-search-departure');
+const departurePeriodField = document.getElementById('departure-period');
+
+periodSearchDepartureCheckbox.addEventListener('change', function() {
+    departurePeriodField.disabled = !this.checked;
+});
+</script>
+
+</body>
+</html>
