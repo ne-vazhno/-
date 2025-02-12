@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Название вашего сайта</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+   
+
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#">Ваш Логотип</a>
+            </div>
+
+            <button class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="heroes.html">Герои</a></li>
+                    <li><a href="">Добавить героя</a></li>
+                    <li><a href="#">Стать партнером</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="contact-button">Связь с администрацией</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container main-container">
+            <section class="featured-section">
+                <div class="holder">
+                    <div class="candle">
+                      <div class="blinking-glow"></div>
+                      <div class="thread"></div>
+                      <div class="glow"></div>
+                      <div class="flame"></div>
+                    </div>
+                  </div>
+            </section>
+
+            <section class="gallery-section">
+                <h2>Галерея фотографий</h2>
+                <div class="gallery">
+                    <img src="#" alt="Фото 1">
+                    <img src="#" alt="Фото 2">
+                    <img src="#" alt="Фото 3">
+                    <img src="#" alt="Фото 4">
+                    <img src="#" alt="Фото 5">
+                    <img src="#" alt="Фото 6">
+                    <img src="#" alt="Фото 7">
+                    <img src="#" alt="Фото 8">
+                    <img src="#" alt="Фото 9">
+                    <img src="#" alt="Фото 10">
+                    <img src="#" alt="Фото 11">
+                    <img src="#" alt="Фото 12">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-buttons">
+                <button><a href="form.html">Поиск</a></button>
+                <button>Добавить</button>
+                <button>Сделать баннер</button>
+                <button>Хроника событий на Украине</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
